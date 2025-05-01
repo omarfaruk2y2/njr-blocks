@@ -1,0 +1,14 @@
+.njr-slider {
+  .swiper-slide {
+    text-align: center;
+    img {
+      max-width: 100%;
+      display: block;
+      margin: auto;
+    }
+    .slide-caption {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+    }
+  }
+}
