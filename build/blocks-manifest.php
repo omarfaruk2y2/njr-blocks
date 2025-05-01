@@ -52,6 +52,10 @@ return array(
 			'delay' => array(
 				'type' => 'number',
 				'default' => 3000
+			),
+			'slideGap' => array(
+				'type' => 'number',
+				'default' => 16
 			)
 		),
 		'supports' => array(

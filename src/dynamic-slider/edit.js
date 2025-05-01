@@ -34,6 +34,7 @@ export default function Edit({ attributes, setAttributes }) {
         effect,
         speed,
         delay,
+        slideGap,
     } = attributes;
 
     const sliderRef = useRef(null);
@@ -65,6 +66,7 @@ export default function Edit({ attributes, setAttributes }) {
         const updatedSlides = slides.filter((_, i) => i !== index);
         setAttributes({ slides: updatedSlides });
     };
+    
 
     // Initialize Swiper in editor
     useEffect(() => {
@@ -88,7 +90,7 @@ export default function Edit({ attributes, setAttributes }) {
         }, 100); // Delay 100ms to allow DOM to mount
     
         return () => clearTimeout(timeout);
-    }, [slides, autoplay, loop, showArrows, showPagination, effect, speed, delay]);
+    }, [slides, autoplay, loop, showArrows, showPagination, effect, speed, delay, slideGap]);
     
 
     return (
@@ -103,6 +105,8 @@ export default function Edit({ attributes, setAttributes }) {
                     <SelectControl label="Effect" value={effect} options={EFFECT_OPTIONS} onChange={(val) => setAttributes({ effect: val })} />
                     <RangeControl label="Speed" value={speed} min={100} max={5000} onChange={(val) => setAttributes({ speed: val })} />
                     <RangeControl label="Delay" value={delay} min={500} max={10000} onChange={(val) => setAttributes({ delay: val })} />
+                    <RangeControl label="Slide Gap (px)" value={slideGap} min={0} max={100} onChange={(val) => setAttributes({ slideGap: val })} />
+
                 </PanelBody>
             </InspectorControls>
 
@@ -122,7 +126,7 @@ export default function Edit({ attributes, setAttributes }) {
 
                 {slides.length > 0 ? (
                     <div className="swiper njr-slider-preview" ref={sliderRef}>
-                        <div className="swiper-wrapper">
+                        <div className="swiper-wrapper" style={{ gap: `${slideGap}px` }}>
                             {slides.map((slide, index) => (
                                 <div className="swiper-slide" key={index} style={{ textAlign: 'center', padding: '10px' }}>
                                     <img src={slide.url} alt={slide.alt} style={{ maxWidth: '100%', height: 'auto' }} />

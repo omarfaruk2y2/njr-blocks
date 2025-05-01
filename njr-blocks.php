@@ -59,7 +59,6 @@ function create_block_njr_blocks_block_init() {
 add_action( 'init', 'create_block_njr_blocks_block_init' );
 
 
-
 function njr_slider_assets() {
     // Swiper CSS & JS
     wp_register_style('swiper', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css');

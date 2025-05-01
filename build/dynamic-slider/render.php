@@ -7,6 +7,7 @@ $showPagination = $attributes['showPagination'] ?? true;
 $effect = $attributes['effect'] ?? 'slide';
 $speed = $attributes['speed'] ?? 500;
 $delay = $attributes['delay'] ?? 3000;
+$slideGap = $attributes['slideGap'] ?? 16;
 
 $uid = 'njr-slider-' . uniqid();
 ?>
@@ -16,6 +17,7 @@ $uid = 'njr-slider-' . uniqid();
   'loop' => $loop,
   'effect' => $effect,
   'speed' => $speed,
+  'spaceBetween' => $slideGap,
   'pagination' => $showPagination,
   'navigation' => $showArrows
 ])); ?>'>

@@ -47,6 +47,10 @@
     "delay": {
       "type": "number",
       "default": 3000
+    },
+    "slideGap": {
+      "type": "number",
+      "default": 16
     }
   },
   "supports": {
